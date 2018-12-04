@@ -1,0 +1,13 @@
+version: "3.2"
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - type: bind
+        source: ./dist
+        target: /usr/share/nginx/html
+networks:
+  default:
+    external:
+      name: webcomponents
+
