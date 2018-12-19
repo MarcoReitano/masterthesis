@@ -6,11 +6,11 @@ import lombok.Value;
 
 @Embeddable
 @Value
-public class Name {
+public class ArtistAlias {
 
-  public Name (String name) {
-    this.name = name;
+  public ArtistAlias(String alias) {
+    this.alias = alias;
   }
 
-  String name;
+  String alias;
 }

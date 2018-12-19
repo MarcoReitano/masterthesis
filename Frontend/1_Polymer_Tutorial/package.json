@@ -8,6 +8,7 @@
   "author": "The Polymer Project Authors",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@polymer/iron-ajax": "^3.0.1",
     "@polymer/iron-icon": "^3.0.0-pre.12",
     "@polymer/iron-icons": "^3.0.0-pre.12",
     "@polymer/polymer": "^3.0.0-pre.12",

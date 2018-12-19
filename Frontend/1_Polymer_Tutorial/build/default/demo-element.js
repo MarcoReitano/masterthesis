@@ -1,4 +1,5 @@
 import { PolymerElement, html } from "./node_modules/@polymer/polymer/polymer-element.js";
+import "./node_modules/@polymer/iron-ajax/iron-ajax.js";
 import "./node_modules/@polymer/iron-icons/iron-icons.js";
 import './icon-toggle.js';
 
@@ -19,8 +20,7 @@ class DemoElement extends PolymerElement {
             display: inline-block;
         }
       </style>
-      <div id="polymercontainer">
-            
+      <dom-module id="polymercontainer">            
         <h2>
             <img src="https://www.polymer-project.org/images/logos/p-logo.png" alt="Polymer Logo" height="20">
             Polymer
@@ -43,7 +43,28 @@ class DemoElement extends PolymerElement {
         <icon-toggle toggle-icon="menu" pressed></icon-toggle>
         <icon-toggle toggle-icon="settings"></icon-toggle>
         <icon-toggle toggle-icon="settings" pressed></icon-toggle>
-      </div>
+        
+        <h3>Iron Ajax Call</h3>
+        
+        <iron-ajax 
+        auto 
+        url="http://localhost/artists"
+        handle-as="json"
+        last-Response="{{responseData}}"
+        on-response="_handleResponse"
+        debounce-duration="300">
+        
+        </iron-ajax>
+        <template is="dom-repeat" items="{{responseData._embedded.artists}}">
+        <div style="border: solid red; border-radius: 25px">
+          {{item.alias.alias}}
+          {{item.genre.genre}}
+          {{item.facebookURI.facebookURI}}
+          {{item.twitterURI.twitterURI}}
+        </div>
+      </template>
+      <!--[[responseData._embedded.artists]]-->
+      </dom-module>
     `;
   }
 
@@ -53,6 +74,13 @@ class DemoElement extends PolymerElement {
     } else {
       return 'Do you like me?';
     }
+  }
+
+  _handleResponse(event, request) {
+    var response = request.response;
+    console.log("_handleResponse...");
+    console.log(JSON.stringify(response));
+    console.log(this.responseData);
   }
 
 }
