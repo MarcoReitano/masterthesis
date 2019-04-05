@@ -11,12 +11,14 @@
 	<groupId>de.thkoeln.reitano.masterthesis</groupId>
 	<artifactId>venue</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>venueURI</name>
+	<name>venue</name>
 	<description>Venue MS (Masterthesis)</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<keycloak.version>4.5.0.Final</keycloak.version>
+		<dockerfile-maven.version>1.4.10</dockerfile-maven.version>
+		<docker.image.prefix>marcoreitano</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -98,6 +100,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven.version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<!--<phase>install</phase>-->
+						<goals>
+							<goal>build</goal>
+							<!--<goal>push</goal>-->
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
