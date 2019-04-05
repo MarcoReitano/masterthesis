@@ -6,43 +6,46 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
+@AllArgsConstructor
 public class Artist {
 
   protected Artist(){
     this.id = UUID.randomUUID();
   }
 
-  public Artist(String alias, String genre, String facebookURI, String twitterURI){
-    this.id = UUID.randomUUID();
-
-    this.alias = new ArtistAlias(alias);
-    this.genre = new Genre(genre);
-    this.facebookURI = new FacebookURI(facebookURI);
-    this.twitterURI = new TwitterURI(twitterURI);
-  }
-
   @Id
   private UUID id;
 
   @Embedded
-//  @JsonUnwrapped
+  @JsonUnwrapped
   private ArtistAlias alias;
 
   @Embedded
-//  @JsonUnwrapped
+  @JsonUnwrapped
   private Genre genre;
 
   @Embedded
+  @JsonUnwrapped
+  private WebsiteURI websiteURI;
+
+  @Embedded
+  @JsonUnwrapped
   private FacebookURI facebookURI;
 
   @Embedded
+  @JsonUnwrapped
   private TwitterURI twitterURI;
+
+  @Embedded
+  @JsonUnwrapped
+  private MTVURI mtvURI;
 }

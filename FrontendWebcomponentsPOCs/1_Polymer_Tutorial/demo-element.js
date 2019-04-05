@@ -19,6 +19,10 @@ class DemoElement extends PolymerElement {
             padding: 20px;
             display: inline-block;
         }
+        artist{
+            border: solid red;
+            border-radius: 25px;
+        }
       </style>
       <dom-module id="polymercontainer">            
         <h2>
@@ -56,14 +60,13 @@ class DemoElement extends PolymerElement {
         
         </iron-ajax>
         <template is="dom-repeat" items="{{responseData._embedded.artists}}">
-        <div style="border: solid red; border-radius: 25px">
+        <div class="artist">
           {{item.alias.alias}}
           {{item.genre.genre}}
           {{item.facebookURI.facebookURI}}
           {{item.twitterURI.twitterURI}}
         </div>
       </template>
-      <!--[[responseData._embedded.artists]]-->
       </dom-module>
     `;
   }

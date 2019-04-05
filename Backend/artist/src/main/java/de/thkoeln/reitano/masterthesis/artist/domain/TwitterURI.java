@@ -10,9 +10,16 @@ import lombok.Value;
 @Value
 public class TwitterURI {
 
-  TwitterURI(String twitterURI)
+  private static URI twitterHost = URI.create("http://www.twitter.com");
+
+  public TwitterURI(String twitterURI)
   {
     this.twitterURI = URI.create(twitterURI);
+
+    if(!this.twitterURI.getHost().equalsIgnoreCase(twitterHost.getHost()))
+    {
+      throw new IllegalArgumentException("TwitterURI has to start with" + twitterHost.getHost());
+    }
   }
 
   URI twitterURI;

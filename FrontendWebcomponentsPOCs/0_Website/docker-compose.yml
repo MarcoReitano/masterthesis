@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./html
+        target: /usr/share/nginx/html
+      - type: bind
+        source: ./nginx/conf.d
+        target: /etc/nginx/conf.d
+networks:
+  default:
+    external:
+      name: webcomponents
+
