@@ -1,5 +1,5 @@
-import {html, PolymerElement} from './node_modules/@polymer/polymer/polymer-element.js';
-import './node_modules/@polymer/polymer/lib/elements/dom-repeat.js'
+import { html, PolymerElement } from './node_modules/@polymer/polymer/polymer-element.js';
+import './node_modules/@polymer/polymer/lib/elements/dom-repeat.js';
 import './node_modules/@polymer/iron-ajax/iron-ajax.js';
 /**
  * `artist-list`
@@ -9,8 +9,9 @@ import './node_modules/@polymer/iron-ajax/iron-ajax.js';
  * @polymer
  * @demo demo/index.html
  */
+
 class ArtistList extends PolymerElement {
-  constructor(){
+  constructor() {
     super();
     this["JSON.stringify"] = JSON.stringify;
   }
@@ -35,6 +36,7 @@ class ArtistList extends PolymerElement {
       </template>
     `;
   }
+
   static get properties() {
     return {
       artists: {
@@ -42,5 +44,7 @@ class ArtistList extends PolymerElement {
       }
     };
   }
+
 }
+
 window.customElements.define('artist-list', ArtistList);

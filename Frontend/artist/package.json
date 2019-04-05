@@ -1,0 +1,19 @@
+{
+  "name": "artist-element",
+  "main": "artist-element.js",
+  "dependencies": {
+    "@polymer/iron-ajax": "^3.0.1",
+    "@polymer/polymer": "^3.2.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "wct-mocha": "^1.0.0"
+  },
+  "scripts": {
+    "build": "polymer build && cp -R ./build/default/{node_modules,resources,artist-element.js,artist-list.js} ../0_Website/html"
+  }
+}
