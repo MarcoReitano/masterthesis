@@ -1,5 +1,5 @@
 <template>
-  <div class="concert-container">
+  <div v-if="concert" class="concert-list-item">
     <div class="artist">{{concert.artist.alias}}</div>
     <div class="venue">{{concert.venue.name}}</div>
     <div class="date">{{concert.date}}</div>
@@ -15,7 +15,7 @@
 </script>
 
 <style scoped>
-  .concert-container{
+  .concert-list-item{
     position: relative;
     background: red;
     height: 100px;

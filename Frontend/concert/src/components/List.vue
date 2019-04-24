@@ -1,6 +1,6 @@
 <template>
-  <div>
-  Concert-List works!
+  <div class="concert-list">
+  <h1 class="list-title">Concert-List</h1>
   <list-item v-for="concert of concerts" v-bind:key="concert.date" v-bind:concert="concert"></list-item>
   </div>
 </template>
@@ -29,5 +29,12 @@
 </script>
 
 <style scoped>
-
+  .list-title{
+    color: black;
+  }
+  .concert-list{
+    display: block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 </style>

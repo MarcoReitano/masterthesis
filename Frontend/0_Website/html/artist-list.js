@@ -16,24 +16,38 @@ class ArtistList extends PolymerElement {
     this["JSON.stringify"] = JSON.stringify;
   }
 
+  _handleResponse(event, request) {
+    console.log("Response!");
+  }
+
   static get template() {
     return html`
       <style>
-        :host {
+        .artist-list {
           display: block;
+          color: white;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        .list-title {
+          color:black
         }
       </style>
-      <h1>Artist list: </h1>
-      <iron-ajax 
-        auto 
-        url="http://localhost/artists/"
-        handle-as="json"
-        last-Response="{{responseData}}"
-        debounce-duration="300">
-      </iron-ajax>
-      <template is="dom-repeat" items="[[responseData._embedded.artists]]">
-        <artist-element artist="{{item}}"></artist-element>
-      </template>
+      <div class="artist-list">
+        <h1 class="list-title">Artist list</h1>
+
+        <template is="dom-repeat" items="[[responseData._embedded.artists]]">
+          <artist-element artist="{{item}}"></artist-element>
+        </template>
+
+        <iron-ajax 
+          auto 
+          url="http://localhost/artists/"
+          handle-as="json"
+          last-Response="{{responseData}}"
+          on-response="_handleResponse"
+          debounce-duration="300">
+        </iron-ajax>
+      </div>
     `;
   }
 

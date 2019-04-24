@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Injector, NgModule} from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
 
-// import { AppComponent } from './app.component';
+
 import {createCustomElement} from "@angular/elements";
 import { VenueComponent } from './venue/venue.component';
 import { VenueListComponent } from './venue-list/venue-list.component';
@@ -13,7 +14,8 @@ import { VenueListComponent } from './venue-list/venue-list.component';
     VenueListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [VenueComponent, VenueListComponent]
