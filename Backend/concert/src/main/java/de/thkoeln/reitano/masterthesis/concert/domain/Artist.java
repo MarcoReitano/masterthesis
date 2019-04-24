@@ -19,19 +19,21 @@ import lombok.Value;
 //@Embeddable
 //@Value
 //@AllArgsConstructor
-@Entity
-@Data
-@AllArgsConstructor
+//@Entity
+//@Data
+//@AllArgsConstructor
+@Embeddable
+@Value
 public class Artist {
 
-  public Artist(String artistURL){
-    this.artistURI = URI.create(artistURL);
-    this.alias = null;
+  public Artist(URI artistURI, String alias){
+    this.artistURI = artistURI;
+    this.alias = alias;
   }
 
 //  @JsonProperty(value="uri")
-  @Id
-  @RestResource(exported = true)
+//  @Id
+//  @RestResource(exported = true)
   private URI artistURI;
 
   @JsonProperty(value="alias")

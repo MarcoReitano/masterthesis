@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.UUID;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -27,10 +28,10 @@ public class Concert {
   @Id
   private UUID id;
 
-  @OneToOne
+  @Embedded
   private Artist artist;
 
-  @OneToOne
+  @Embedded
   private Venue venue;
 
   @JsonProperty(value = "date")

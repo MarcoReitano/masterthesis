@@ -10,6 +10,15 @@ services:
       - kafka
 ############## /ARTIST MS ##############
 
+############## VENUE-MS ################
+  venue:
+    image: marcoreitano/venue:latest
+    ports:
+      - 8081:8081
+    depends_on:
+      - kafka
+############## /VENUE-MS ################
+
 ############## CONCERT MS ##############
   concert:
     image: marcoreitano/concert:latest

@@ -3,13 +3,22 @@
     <title>Mitneve</title>
 
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="concert.js"></script>
     <script type="module" src="artist-element.js"></script>
     <script type="module" src="artist-list.js"></script>
+    <script src="venue.js"></script>
 
   </head>
   <body>
+  <concert-list-item></concert-list-item>
+  <concert-list></concert-list>
+
+  <venue-list-item></venue-list-item>
+  <venue-list></venue-list>
+
   <artist-list></artist-list>
-  <!--<artist-element artist='{"alias":"Ed Sheeran", "genre":"Singer/Songwriter", "facebookuri":"http://www.facebook.com/9189674485"}'></artist-element>-->
+  <artist-element artist='{"alias":"Ed Sheeran", "genre":"Singer/Songwriter", "facebookuri":"http://www.facebook.com/9189674485"}'></artist-element>
   
 
 </body></html>
