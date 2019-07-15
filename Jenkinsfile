@@ -1,12 +1,9 @@
-pipeline {
-
-    agent any
-    tools {
-        maven "mvn_3_5"
-        jdk "JDK_8u131"
-    }
-
-    stages {
-        
-    }
+node {
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      git url: 'https://github.com/MarcoReitano/masterthesis.git', branch: 'master'
+   }
+   stage('Build') {
+      echo 'Hello World'
+   }
 }
