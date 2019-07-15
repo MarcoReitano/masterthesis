@@ -4,6 +4,6 @@ node {
       git url: 'https://github.com/MarcoReitano/masterthesis.git', branch: 'master'
    }
    stage('Build') {
-      echo 'Hello World'
+      echo 'Hello World! Testpush'
    }
 }
