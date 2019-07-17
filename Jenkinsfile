@@ -9,7 +9,6 @@ pipeline {
           sh 'ls'
           sh 'echo bla1'
           sh 'docker ps'
-          }
         }
       }
     }
