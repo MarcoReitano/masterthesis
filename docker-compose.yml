@@ -1,5 +1,12 @@
 version: '3'
 services:
+############# traefik ############
+  traefik:
+    image: trafik
+    command: --api --docker
+    ports:
+      - 80:80
+      - 8080:8080
 ############# Keycloak ###########
   keycloak:
     image: jboss/keycloak
