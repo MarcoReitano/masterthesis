@@ -3,8 +3,8 @@ services:
 ############# container ##########
   nginx:
     image: nginx:alpine
-        labels:
-          - "traefik.frontend.rule=Host:marcoreitano.dev"
+    labels:
+      - "traefik.frontend.rule=Host:marcoreitano.dev"
 
 ############# traefik ############
   traefik:
