@@ -9,7 +9,7 @@ node {
    stage('Deploy'){
       sh 'ls'
       docker.withServer('tcp://172.17.0.1:2375') {
-        sh 'docker info'
+        sh 'echo $(hostname) '
       }
    }
 }
