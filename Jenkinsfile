@@ -8,6 +8,8 @@ node {
    }
    stage('Deploy'){
       sh 'ls'
-      sh 'docker stack up -c docker-compose.yml Mitneve'
+      docker.withServer('tcp://172.17.0.1:2375') {
+        sh 'docker info'
+      }
    }
 }
