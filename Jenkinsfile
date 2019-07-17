@@ -9,6 +9,7 @@ node {
    stage('Deploy'){
       sh 'ls'
       docker.withServer('tcp://10.10.10.99:2375', 'MitneveVM') {
+        sh 'echo bla'
         sh 'docker ps'
       }
    }
