@@ -30,8 +30,8 @@ services:
       - KEYCLOAK_USER=${KEYCLOAK_USER}
       - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
       - PROXY_ADDRESS_FORWARDING=true
-      labels:
-        - "traefik.frontend.rule=Host:login.marcoreitano.dev"
+    labels:
+      - "traefik.frontend.rule=Host:login.marcoreitano.dev"
 
 ############## KAFKA ##############
   zookeeper:
