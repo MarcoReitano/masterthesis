@@ -4,7 +4,7 @@ services:
   nginx:
     image: nginx:alpine
     labels:
-      - "traefik.frontend.rule=Host:marcoreitano.dev"
+      - "traefik.frontend.rule=Host:marcoreitano.dev,www.marcoreitano.dev"
 
 ############# traefik ############
   traefik:
