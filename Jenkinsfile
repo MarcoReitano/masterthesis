@@ -8,5 +8,6 @@ node {
    }
    stage('Deploy'){
       sh 'ls'
+      sh 'docker stack up -c docker-compose.yml Mitneve'
    }
 }
