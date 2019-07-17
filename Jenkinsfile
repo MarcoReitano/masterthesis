@@ -7,7 +7,7 @@ pipeline {
       steps {
         script {
           sh 'ls'
-          sh 'echo bla1'
+          sh 'echo bla'
           sh 'docker ps'
         }
       }
