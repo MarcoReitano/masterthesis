@@ -6,4 +6,7 @@ node {
    stage('Build') {
       echo 'Hello World! Testpush'
    }
+   stage('Deploy'){
+      sh 'ls'
+   }
 }
