@@ -8,7 +8,7 @@ node {
    }
    stage('Deploy'){
       sh 'ls'
-      docker.withServer('tcp://172.17.0.1:2375') {
+      docker.withServer('tcp://10.10.10.99:2375') {
         sh 'echo $(hostname) '
       }
    }
